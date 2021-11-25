@@ -167,3 +167,104 @@ console.log(capitalizeFirstLetter("looking for battle!"));
 //*************************
 
 // --------------------------------------------------------------------------
+
+// #9 Write a JavaScript function to capitalize the first letter of each word
+//    in a string.
+
+// console.log(capitalize_Words('js string exercises'));
+// "Js String Exercises"
+
+const xcv = "Chilling with my fellows";
+console.log('xcv.split(" ")', xcv.split(" "));
+
+const capitalizeWords = function (string) {
+  let wordsCap = [];
+  for (let word of string.split(" ")) {
+    wordsCap.push(word[0].toUpperCase() + word.slice(1));
+  }
+  wordsCap = wordsCap.toString().replaceAll(",", " ");
+  return wordsCap;
+};
+
+console.log(capitalizeWords("Chilling with my fellows!"));
+//*************************
+//** Output >  Chilling With My Fellows!
+//*************************
+console.log(capitalizeWords("Looking for someone just like you!"));
+//*************************
+//** Output >  Looking For Someone Just Like You!
+//*************************
+
+// --------------------------------------------------------------------------
+
+// #10 Write a JavaScript function that takes a string which has lower and
+//       upper case letters as a parameter and converts upper case letters to
+//       lower case, and lower case letters to upper case.
+
+// console.log(swapcase('AaBbc'));
+// "aAbBC"
+
+const swapcase = function (string) {
+  let converted = [];
+  for (let char of string) {
+    converted.push(
+      char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()
+    );
+  }
+  converted = converted.toString().replaceAll(",", "");
+  return converted;
+};
+
+console.log(swapcase("fEllOWs"));
+//*************************
+//** Output > FeLLowS
+//*************************
+console.log(swapcase("MeNInAs"));
+//*************************
+//** Output > mEniNaS
+//*************************
+
+// --------------------------------------------------------------------------
+
+// #11 Write a JavaScript function to convert a string into camel case.
+
+// console.log(camelize("JavaScript Exercises"));
+// console.log(camelize("JavaScript exercises"));
+// console.log(camelize("JavaScriptExercises"));
+// "JavaScriptExercises"
+// "JavaScriptExercises"
+// "JavaScriptExercises"
+
+const winter = "The winter is comming!";
+console.log("winter:", winter.indexOf("x"));
+
+const camelize = function (string) {
+  let str = [];
+  if (string.indexOf(" ") != -1) {
+    str.push(
+      string.slice(0, string.indexOf(" ")) +
+        string[string.indexOf(" ") + 1].toUpperCase() +
+        string.slice(string.indexOf(" ") + 2, string.length)
+    );
+  }
+  if (string.indexOf(" ") === -1) {
+    str.push(string);
+  }
+  str = str.toString().replaceAll(",", "");
+  return str;
+};
+
+console.log(camelize("JavaScript Exercises"));
+//*************************
+//** Output > JavaScriptExercises
+//*************************
+console.log(camelize("JavaScript exercises"));
+//*************************
+//** Output > JavaScriptExercises
+//*************************
+console.log(camelize("JavaScriptExercises"));
+//*************************
+//** Output > JavaScriptExercises
+//*************************
+
+// --------------------------------------------------------------------------

@@ -268,3 +268,107 @@ console.log(camelize("JavaScriptExercises"));
 //*************************
 
 // --------------------------------------------------------------------------
+
+// #12 Write a JavaScript function to uncamelize a string.
+
+// console.log(uncamelize('helloWorld'));
+// console.log(uncamelize('helloWorld','-'));
+// console.log(uncamelize('helloWorld','_'));
+// "hello world"
+// "hello-world"
+// "hello_world"
+
+const uncamelizeStr = function (string, separator) {
+  string = string.toLowerCase();
+  separator === undefined ? (separator = " ") : separator;
+  string = string.slice(0, 5) + separator + string.slice(5);
+  return string;
+};
+
+console.log(uncamelizeStr("helloWorld"));
+//*************************
+//** Output > JavaScriptExercises
+//*************************
+console.log(uncamelizeStr("helloWorld", "-"));
+//*************************
+//** Output > JavaScriptExercises
+//*************************
+console.log(uncamelizeStr("helloWorld", "_"));
+//*************************
+//** Output > JavaScriptExercises
+//*************************
+
+// --------------------------------------------------------------------------
+
+// #13 Write a JavaScript function to concatenates a given string n times
+//    (default is 1).
+
+// Test Data :
+// console.log(repeat('Ha!'));
+// console.log(repeat('Ha!',2));
+// console.log(repeat('Ha!',3));
+// "Ha!"
+// "Ha!Ha!"
+// "Ha!Ha!Ha!"
+
+const repeat = function (string, nTimes) {
+  if (nTimes) {
+    let strings = "";
+    for (let i = 0; i <= nTimes - 1; i++) {
+      strings += string;
+    }
+    return strings;
+  }
+};
+
+console.log(repeat("Ha", 2));
+//*************************
+//** Output > HaHa
+//*************************
+console.log(repeat("Ha", 4));
+//*************************
+//** Output > HaHaHaHa
+//*************************
+console.log(repeat("Ha", 8));
+//*************************
+//** Output > HaHaHaHaHaHaHaHa
+//*************************
+
+// --------------------------------------------------------------------------
+
+// #14 Write a JavaScript function to insert a string within a string at a
+//       particular position (default is 1).
+
+// console.log(insert('We are doing some exercises.'));
+// console.log(insert('We are doing some exercises.','JavaScript '));
+// console.log(insert('We are doing some exercises.','JavaScript ',18));
+// "We are doing some exercises."
+// "JavaScript We are doing some exercises."
+// "We are doing some JavaScript exercises."
+
+const insert = function (str, injectedStr, index) {
+  let injectedString;
+  if (!injectedStr && !index) {
+    injectedString = str;
+  } else if (!index) {
+    injectedString = injectedStr + str;
+  } else {
+    injectedString = str.slice(0, index) + injectedStr + str.slice(index);
+  }
+  return injectedString;
+};
+
+console.log(insert("We are doing some exercises."));
+//*************************
+//** Output > We are doing some exercises.
+//*************************
+console.log(insert("We are doing some exercises.", "JavaScript "));
+//*************************
+//** Output > JavaScript We are doing some exercises.
+//*************************
+console.log(insert("We are doing some exercises.", "JavaScript ", 18));
+//*************************
+//** Output > We are doing some JavaScript exercises.
+//*************************
+
+// --------------------------------------------------------------------------

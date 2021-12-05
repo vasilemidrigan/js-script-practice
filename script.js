@@ -372,3 +372,49 @@ console.log(insert("We are doing some exercises.", "JavaScript ", 18));
 //*************************
 
 // --------------------------------------------------------------------------
+
+// 15. Write a JavaScript function to humanized number
+//       (Formats a number to a human-readable string.)
+//       with the correct suffix such as 1st, 2nd, 3rd or 4th.
+
+// console.log(humanize_format());
+// console.log(humanize_format(1));
+// console.log(humanize_format(8));
+// console.log(humanize_format(301));
+// console.log(humanize_format(402));
+// "1st"
+// "8th"
+// "301st"
+// "402nd"
+
+const humanize_format = function (number) {
+  let modifiedFormat = number.toString();
+  if (modifiedFormat[modifiedFormat.length - 1] === "1") {
+    modifiedFormat = modifiedFormat.concat("st");
+  } else if (modifiedFormat[modifiedFormat.length - 1] === "2") {
+    modifiedFormat = modifiedFormat.concat("nd");
+  } else if (modifiedFormat[modifiedFormat.length - 1] === "3") {
+    modifiedFormat = modifiedFormat.concat("rd");
+  } else {
+    modifiedFormat = modifiedFormat.concat("th");
+  }
+  return modifiedFormat;
+};
+
+console.log(humanize_format(1));
+//*************************
+//** Output > 1st
+//*************************
+console.log(humanize_format(8));
+//*************************
+//** Output > 8th
+//*************************
+console.log(humanize_format(301));
+//*************************
+//** Output > 301st
+//*************************
+console.log(humanize_format(402));
+//*************************
+//** Output > 402nd
+//*************************
+// --------------------------------------------------------------------------

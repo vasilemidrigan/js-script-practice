@@ -418,3 +418,43 @@ console.log(humanize_format(402));
 //** Output > 402nd
 //*************************
 // --------------------------------------------------------------------------
+
+//  #16 Write a JavaScript function to truncates a string if it is longer
+//          than the specified number of characters. Truncated strings will end
+//           with a translatable ellipsis sequence ("…") (by default) or specified
+//             characters.
+
+// console.log(text_truncate('We are doing JS string exercises.'))
+// console.log(text_truncate('We are doing JS string exercises.',19))
+// console.log(text_truncate('We are doing JS string exercises.',15,'!!'))
+// "We are doing JS string exercises."
+// "We are doing JS ..."
+// "We are doing !!"
+
+const text_truncate = function (string, nrOfChar, charAtTheEnd = "...") {
+  if (!nrOfChar || nrOfChar >= string.length - 1) {
+    return string;
+  } else {
+    return string.slice(0, nrOfChar) + charAtTheEnd;
+  }
+};
+
+console.log(text_truncate("We are doing JS string exercises."));
+//*************************
+//** Output > We are doing JS string exercises.
+//*************************
+console.log(text_truncate("We are doing JS string exercises.", 19));
+//*************************
+//** Output > We are doing JS str...
+//*************************
+console.log(text_truncate("We are doing JS string exercises.", 15, "!!"));
+//*************************
+//** Output > We are doing JS!!
+//*************************
+console.log(
+  text_truncate("We are doing JS string exercises.", 12, " that thing ;)")
+);
+//*************************
+//** Output > We are doing that thing ;)
+//*************************
+// --------------------------------------------------------------------------
